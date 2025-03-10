@@ -82,6 +82,26 @@ particlesJS("particles-js", {
     retina_detect: true,
 });
 
+// Effetto background dinamico
+const backgroundEffect = document.getElementById('background-effect');
+
+function updateBackground() {
+    const colors = [
+        'linear-gradient(135deg, #1e1e1e, #2c3e50)',
+        'linear-gradient(135deg, #2c3e50, #1e1e1e)',
+        'linear-gradient(135deg, #1e1e1e, #34495e)',
+        'linear-gradient(135deg, #34495e, #1e1e1e)',
+    ];
+    let index = 0;
+
+    setInterval(() => {
+        backgroundEffect.style.background = colors[index];
+        index = (index + 1) % colors.length;
+    }, 5000); // Cambia colore ogni 5 secondi
+}
+
+updateBackground();
+
 // Gestione apertura/chiusura delle tab
 document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
     radio.addEventListener('click', () => {
