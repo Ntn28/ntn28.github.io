@@ -90,20 +90,30 @@ document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
         // Chiudi tutte le altre tab
         document.querySelectorAll('.tab .content').forEach((otherContent) => {
             if (otherContent !== content) {
-                otherContent.style.display = 'none';
+                otherContent.style.animation = 'slideUp 0.5s ease-in-out';
+                setTimeout(() => {
+                    otherContent.style.display = 'none';
+                }, 500); // Durata dell'animazione
             }
         });
 
         // Apri/chiudi la tab corrente
         if (radio.checked) {
             if (content.style.display === 'block') {
-                content.style.display = 'none';
+                content.style.animation = 'slideUp 0.5s ease-in-out';
+                setTimeout(() => {
+                    content.style.display = 'none';
+                }, 500); // Durata dell'animazione
                 radio.checked = false;
             } else {
                 content.style.display = 'block';
+                content.style.animation = 'slideDown 0.5s ease-in-out';
             }
         } else {
-            content.style.display = 'none';
+            content.style.animation = 'slideUp 0.5s ease-in-out';
+            setTimeout(() => {
+                content.style.display = 'none';
+            }, 500); // Durata dell'animazione
         }
     });
 });
@@ -121,7 +131,10 @@ document.addEventListener('click', (event) => {
 
     if (!isClickInsideTab) {
         document.querySelectorAll('.tab .content').forEach((content) => {
-            content.style.display = 'none';
+            content.style.animation = 'slideUp 0.5s ease-in-out';
+            setTimeout(() => {
+                content.style.display = 'none';
+            }, 500); // Durata dell'animazione
         });
         document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
             radio.checked = false;
