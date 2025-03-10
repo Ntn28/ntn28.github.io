@@ -154,6 +154,25 @@ h1 {
     align-items: flex-start;
 }
 
+.github-link {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+    background-color: #0056b3;
+}
+
+.github-link i {
+    margin-right: 10px;
+}
+
 video {
     max-width: 300px;
     border-radius: 10px;
