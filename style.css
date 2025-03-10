@@ -1,9 +1,10 @@
 /* Stile generale */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 header {
@@ -16,7 +17,8 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 .cv-button {
@@ -28,11 +30,13 @@ h1 {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
 }
 
 .cv-button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* Stile tab */
@@ -43,7 +47,16 @@ h1 {
 
 .tab {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.tab:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .tab input[type="radio"] {
@@ -58,6 +71,7 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .tab label:hover {
@@ -66,9 +80,19 @@ h1 {
 
 .tab .content {
     display: none;
-    background-color: white;
     padding: 20px;
-    border: 1px solid #ddd;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .tab input[type="radio"]:checked + label + .content {
@@ -85,14 +109,55 @@ img {
     max-width: 300px;
     cursor: pointer;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 img:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+video {
+    max-width: 300px;
+    border-radius: 10px;
 }
 
 p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+p strong {
+    font-weight: 700;
+}
+
+.contributo {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .details {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img, video {
+        max-width: 100%;
+    }
+
+    .cv-button {
+        position: static;
+        margin-top: 10px;
+    }
 }
