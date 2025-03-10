@@ -1,163 +1,64 @@
-// Effetto particelle per il background
-particlesJS("particles-js", {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800,
-            },
-        },
-        color: {
-            value: "#007BFF",
-        },
-        shape: {
-            type: "circle",
-        },
-        opacity: {
-            value: 0.5,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false,
-            },
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 2,
-                size_min: 0.1,
-                sync: false,
-            },
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#007BFF",
-            opacity: 0.4,
-            width: 1,
-        },
-        move: {
-            enable: true,
-            speed: 1,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200,
-            },
-        },
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: {
-                enable: true,
-                mode: "repulse",
-            },
-            onclick: {
-                enable: true,
-                mode: "push",
-            },
-            resize: true,
-        },
-        modes: {
-            repulse: {
-                distance: 100,
-                duration: 0.4,
-            },
-            push: {
-                particles_nb: 4,
-            },
-        },
-    },
-    retina_detect: true,
-});
-
 // Effetto background dinamico
 const backgroundEffect = document.getElementById('background-effect');
 
-function updateBackground() {
-    const colors = [
-        'linear-gradient(135deg, #1e1e1e, #2c3e50)',
-        'linear-gradient(135deg, #2c3e50, #1e1e1e)',
-        'linear-gradient(135deg, #1e1e1e, #34495e)',
-        'linear-gradient(135deg, #34495e, #1e1e1e)',
-    ];
-    let index = 0;
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.top = `${Math.random() * 100}vh`;
+    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    backgroundEffect.appendChild(particle);
 
-    setInterval(() => {
-        backgroundEffect.style.background = colors[index];
-        index = (index + 1) % colors.length;
-    }, 5000); // Cambia colore ogni 5 secondi
+    // Rimuovi la particella dopo che l'animazione è terminata
+    particle.addEventListener('animationend', () => {
+        particle.remove();
+    });
 }
 
-updateBackground();
+setInterval(createParticle, 500); // Crea una nuova particella ogni 500ms
 
 // Gestione apertura/chiusura delle tab
 document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
     radio.addEventListener('click', () => {
         const content = radio.nextElementSibling.nextElementSibling;
 
-        // Chiudi tutte le altre tab
-        document.querySelectorAll('.tab .content').forEach((otherContent) => {
-            if (otherContent !== content) {
-                otherContent.style.animation = 'slideUp 0.5s ease-in-out';
-                setTimeout(() => {
-                    otherContent.style.display = 'none';
-                }, 500); // Durata dell'animazione
-            }
-        });
-
-        // Apri/chiudi la tab corrente
-        if (radio.checked) {
-            if (content.style.display === 'block') {
-                content.style.animation = 'slideUp 0.5s ease-in-out';
-                setTimeout(() => {
-                    content.style.display = 'none';
-                }, 500); // Durata dell'animazione
-                radio.checked = false;
-            } else {
-                content.style.display = 'block';
-                content.style.animation = 'slideDown 0.5s ease-in-out';
-            }
-        } else {
+        // Se la tab è già aperta, chiudila
+        if (radio.checked && content.style.display === 'block') {
             content.style.animation = 'slideUp 0.5s ease-in-out';
             setTimeout(() => {
                 content.style.display = 'none';
+                radio.checked = false;
             }, 500); // Durata dell'animazione
+        } else {
+            // Chiudi tutte le altre tab
+            document.querySelectorAll('.tab .content').forEach((otherContent) => {
+                if (otherContent !== content) {
+                    otherContent.style.animation = 'slideUp 0.5s ease-in-out';
+                    setTimeout(() => {
+                        otherContent.style.display = 'none';
+                    }, 500); // Durata dell'animazione
+                }
+            });
+
+            // Apri la tab corrente
+            content.style.display = 'block';
+            content.style.animation = 'slideDown 0.5s ease-in-out';
         }
     });
 });
 
-// Chiudi la tab quando si clicca fuori
-document.addEventListener('click', (event) => {
-    const tabs = document.querySelectorAll('.tab');
-    let isClickInsideTab = false;
+// Scorrimento della pagina con il mouse
+document.addEventListener('mousemove', (event) => {
+    const scrollSpeed = 10; // Velocità di scorrimento
+    const windowHeight = window.innerHeight;
+    const mouseY = event.clientY;
 
-    tabs.forEach((tab) => {
-        if (tab.contains(event.target)) {
-            isClickInsideTab = true;
-        }
-    });
-
-    if (!isClickInsideTab) {
-        document.querySelectorAll('.tab .content').forEach((content) => {
-            content.style.animation = 'slideUp 0.5s ease-in-out';
-            setTimeout(() => {
-                content.style.display = 'none';
-            }, 500); // Durata dell'animazione
-        });
-        document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
-            radio.checked = false;
-        });
+    // Se il mouse è nella parte superiore della finestra, scorri verso l'alto
+    if (mouseY < 50) {
+        window.scrollBy(0, -scrollSpeed);
+    }
+    // Se il mouse è nella parte inferiore della finestra, scorri verso il basso
+    else if (mouseY > windowHeight - 50) {
+        window.scrollBy(0, scrollSpeed);
     }
 });
