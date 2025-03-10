@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repository Tabs</title>
+    <title>Il Mio Portfolio Creativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="particles-js"></div> <!-- Effetto particelle -->
     <header>
-        <h1>Le mie Repository</h1>
-        <a href="Antonino%20Caracci%20Resume.pdf" target="_blank" class="cv-button">Scarica il Curriculum</a>
+        <h1>Il Mio Portfolio Creativo</h1>
+        <a href="Antonino%20Caracci%20Resume.pdf" target="_blank" class="cv-button">
+            <i class="fas fa-file-pdf"></i> Scarica il Curriculum
+        </a>
     </header>
     <main>
         <div class="tabs">
@@ -35,157 +39,13 @@
                     </div>
                 </div>
             </div>
-            <!-- Summer Game Jam -->
-            <div class="tab">
-                <input type="radio" id="tab2" name="tab-group">
-                <label for="tab2">Summer Game Jam</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/summergamejam.jpg" alt="Summer Game Jam">
-                            <video controls>
-                                <source src="videos/summergamejam.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> "Airport Delivery Guy", gioco sviluppato durante la Summer Game Jam.<br>
-                            <strong>Linguaggi:</strong> Unity (C#).<br>
-                            <span class="contributo">Creazione delle meccaniche di consegna e gestione del traffico.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Whacky Wheels -->
-            <div class="tab">
-                <input type="radio" id="tab3" name="tab-group">
-                <label for="tab3">Whacky Wheels</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/whackywheels.jpg" alt="Whacky Wheels">
-                            <video controls>
-                                <source src="videos/whackywheels.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Gioco mobile creato in Unity dove bisogna evitare incidenti controllando il traffico.<br>
-                            <strong>Linguaggi:</strong> Unity (C#).<br>
-                            <span class="contributo">Gestione della logica del traffico e degli eventi.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Wild Clone West -->
-            <div class="tab">
-                <input type="radio" id="tab4" name="tab-group">
-                <label for="tab4">Wild Clone West</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/wildclonewest.jpg" alt="Wild Clone West">
-                            <video controls>
-                                <source src="videos/wildclonewest.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Clone di un famoso gioco in stile western sviluppato in Unity.<br>
-                            <strong>Linguaggi:</strong> Unity (C#).<br>
-                            <span class="contributo">Creazione del sistema di combattimento e IA dei nemici.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tag Game UE -->
-            <div class="tab">
-                <input type="radio" id="tab5" name="tab-group">
-                <label for="tab5">Tag Game UE</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/taggameue.jpg" alt="Tag Game UE">
-                            <video controls>
-                                <source src="videos/taggameue.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Gioco multiplayer di inseguimento sviluppato in Unreal Engine.<br>
-                            <strong>Linguaggi:</strong> Unreal Engine (C++).<br>
-                            <span class="contributo">Gestione dell'IA tramite le Blackboard.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Tetris -->
-            <div class="tab">
-                <input type="radio" id="tab6" name="tab-group">
-                <label for="tab6">Tetris</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/tetris.jpg" alt="Tetris">
-                            <video controls>
-                                <source src="videos/tetris.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Classico gioco Tetris.<br>
-                            <strong>Linguaggi:</strong> C.<br>
-                            <span class="contributo">Implementazione della logica del gioco.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Data Structures -->
-            <div class="tab">
-                <input type="radio" id="tab7" name="tab-group">
-                <label for="tab7">Data Structures</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/datastructures.jpg" alt="Data Structures">
-                            <video controls>
-                                <source src="videos/datastructures.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Collezione di implementazioni di strutture dati come alberi binari e grafi.<br>
-                            <strong>Linguaggi:</strong> C++.<br>
-                            <span class="contributo">Sviluppo e ottimizzazione delle strutture.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Machine Learning -->
-            <div class="tab">
-                <input type="radio" id="tab8" name="tab-group">
-                <label for="tab8">Machine Learning</label>
-                <div class="content">
-                    <div class="details">
-                        <div class="media-container">
-                            <img src="images/machinelearning.jpg" alt="Machine Learning">
-                            <video controls>
-                                <source src="videos/machinelearning.mp4" type="video/mp4">
-                                Il tuo browser non supporta il tag video.
-                            </video>
-                        </div>
-                        <p>
-                            <strong>Descrizione:</strong> Progetto di Machine Learning per la classificazione dei dati.<br>
-                            <strong>Linguaggi:</strong> Python.<br>
-                            <span class="contributo">Sviluppo del modello e preprocessing dei dati.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <!-- Aggiungi altre tab qui seguendo lo stesso schema -->
         </div>
     </main>
     <footer>
         <p>&copy; 2023 Il Tuo Nome. Tutti i diritti riservati.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
