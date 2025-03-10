@@ -88,8 +88,13 @@ h1 {
     z-index: 1;
     background-size: cover;
     background-position: center;
+    filter: blur(4px); /* Immagine blurrata per lo sfondo */
+}
+
+.tab .tab-text {
+    position: relative;
+    z-index: 2;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    filter: blur(2px); /* Immagine blurrata per il pulsante */
 }
 
 .tab label:hover {
@@ -241,21 +246,4 @@ footer {
 /* Stile delle particelle */
 .particle {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(0, 123, 255, 0.5);
-    border-radius: 50%;
-    animation: float linear infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) translateX(0);
-    }
-    50% {
-        transform: translateY(-50vh) translateX(50vw);
-    }
-    100% {
-        transform: translateY(-100vh) translateX(100vw);
-    }
-}
+    width:
