@@ -89,6 +89,7 @@ h1 {
     background-size: cover;
     background-position: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    filter: blur(2px); /* Immagine blurrata per il pulsante */
 }
 
 .tab label:hover {
@@ -154,29 +155,14 @@ h1 {
     align-items: flex-start;
 }
 
-.github-link {
-    display: inline-block;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.github-link:hover {
-    background-color: #0056b3;
-}
-
-.github-link i {
-    margin-right: 10px;
-}
-
 video {
     max-width: 300px;
     border-radius: 10px;
     background-color: #000;
+}
+
+.description {
+    flex: 1;
 }
 
 p {
@@ -186,12 +172,30 @@ p {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 5px;
-    flex: 1;
 }
 
 p strong {
     font-weight: 700;
     color: #007BFF;
+}
+
+.github-link {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+    background-color: #0056b3;
+}
+
+.github-link i {
+    margin-right: 10px;
 }
 
 .contributo {
