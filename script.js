@@ -7,6 +7,7 @@ function createParticle() {
     particle.style.left = `${Math.random() * 100}vw`;
     particle.style.top = `${Math.random() * 100}vh`;
     particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    particle.style.backgroundColor = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`;
     backgroundEffect.appendChild(particle);
 
     // Rimuovi la particella dopo che l'animazione è terminata
@@ -15,7 +16,7 @@ function createParticle() {
     });
 }
 
-setInterval(createParticle, 500); // Crea una nuova particella ogni 500ms
+setInterval(createParticle, 200); // Crea una nuova particella ogni 200ms
 
 // Gestione apertura/chiusura delle tab
 document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
