@@ -1,1 +1,54 @@
-
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Portfolio Creativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background-effect"></div> <!-- Effetto background dinamico -->
+    <header>
+        <h1>Il Mio Portfolio Creativo</h1>
+        <a href="Antonino%20Caracci%20Resume.pdf" target="_blank" class="cv-button">
+            <i class="fas fa-file-pdf"></i> Scarica il Curriculum
+        </a>
+    </header>
+    <main>
+        <div class="tabs">
+            <!-- GGJ 2023 -->
+            <div class="tab">
+                <input type="radio" id="tab1" name="tab-group">
+                <label for="tab1" style="background-image: url('images/ggj2023.jpg');">
+                    <span class="tab-text">GGJ 2023</span>
+                </label>
+                <div class="content" style="background-image: url('images/ggj2023.jpg');">
+                    <div class="details">
+                        <video controls>
+                            <source src="videos/ggj2023.mp4" type="video/mp4">
+                            Il tuo browser non supporta il tag video.
+                        </video>
+                        <div class="description">
+                            <p>
+                                <strong>Descrizione:</strong> TPS arcade sviluppato in Unreal Engine 5 durante la Global Game Jam 2023.<br>
+                                <strong>Linguaggi:</strong> Unreal Engine 5 (Blueprint e C++).<br>
+                                <span class="contributo">Implementazione delle meccaniche di gioco.</span>
+                            </p>
+                            <a href="https://github.com/AssoAndrea/GGJ2023" target="_blank" class="github-link">
+                                <i class="fab fa-github"></i> Vai al Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aggiungi altre tab qui seguendo lo stesso schema -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Il Tuo Nome. Tutti i diritti riservati.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
