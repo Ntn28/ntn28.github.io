@@ -9,28 +9,18 @@ document.addEventListener('mousemove', (event) => {
     mouseLight.style.top = `${event.clientY}px`;
     mouseLight.style.opacity = '1'; // Mostra la luce
 
-    // Scorrimento della pagina con il mouse
-    const scrollSpeed = 10;
-    const windowHeight = window.innerHeight;
-    const mouseY = event.clientY;
-
-    if (mouseY < 50) {
-        window.scrollBy(0, -scrollSpeed);
-    } else if (mouseY > windowHeight - 50) {
-        window.scrollBy(0, scrollSpeed);
-    }
+    // Nascondi la luce quando il mouse è fermo
+    clearTimeout(window.mouseLightTimeout);
+    window.mouseLightTimeout = setTimeout(() => {
+        mouseLight.style.opacity = '0';
+    }, 100);
 });
 
-document.addEventListener('mouseout', () => {
-    mouseLight.style.opacity = '0'; // Nascondi la luce quando il mouse esce dalla finestra
-});
-
-// Footer con movimento morbido
-const footer = document.querySelector('footer');
-
+// Gestione apertura/chiusura delle tab con movimento morbido del footer
 document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
     radio.addEventListener('click', () => {
         const content = radio.nextElementSibling.nextElementSibling;
+        const footer = document.querySelector('footer');
 
         // Se la tab è già aperta, chiudila
         if (radio.checked && content.style.display === 'block') {
@@ -38,8 +28,9 @@ document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
             setTimeout(() => {
                 content.style.display = 'none';
                 radio.checked = false;
-                footer.style.transform = 'translateY(0)'; // Riporta il footer in posizione
-            }, 500);
+                // Riporta il footer alla posizione originale
+                footer.style.transform = 'translateY(0)';
+            }, 500); // Durata dell'animazione
         } else {
             // Chiudi tutte le altre tab
             document.querySelectorAll('.tab .content').forEach((otherContent) => {
@@ -47,16 +38,16 @@ document.querySelectorAll('.tab input[type="radio"]').forEach((radio) => {
                     otherContent.style.animation = 'slideUp 0.5s ease-in-out';
                     setTimeout(() => {
                         otherContent.style.display = 'none';
-                    }, 500);
+                    }, 500); // Durata dell'animazione
                 }
             });
 
             // Apri la tab corrente
             content.style.display = 'block';
             content.style.animation = 'slideDown 0.5s ease-in-out';
-            footer.style.transform = 'translateY(20px)'; // Sposta il footer leggermente verso il basso
+
+            // Sposta il footer verso il basso per evitare sovrapposizioni
+            footer.style.transform = 'translateY(20px)';
         }
     });
 });
-
-
