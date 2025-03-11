@@ -19,9 +19,10 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem; /* Dimensione del font aumentata */
     font-weight: 700;
     color: #007BFF;
+    font-family: 'Montserrat', sans-serif; /* Nuovo font per il titolo */
 }
 
 .cv-button {
@@ -88,12 +89,14 @@ h1 {
     z-index: 1;
     background-size: cover;
     background-position: center;
+    filter: blur(4px); /* Sfondo blurrato */
 }
 
 .tab .tab-text {
     position: relative;
     z-index: 2;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    filter: none; /* Testo non blurrato */
 }
 
 .tab label:hover {
@@ -216,7 +219,7 @@ footer {
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 2;
-    transition: transform 0.5s ease-in-out; /* Aggiungi transizione */
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Effetto luce del mouse */
@@ -226,7 +229,7 @@ footer {
     height: 100px;
     background: radial-gradient(circle, rgba(0, 123, 255, 0.3), rgba(0, 123, 255, 0));
     border-radius: 50%;
-    pointer-events: none; /* Non interferisce con i clic */
+    pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 9999;
     opacity: 0;
