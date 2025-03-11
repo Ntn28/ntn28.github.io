@@ -1,3 +1,22 @@
+// Effetto background dinamico
+const backgroundEffect = document.getElementById('background-effect');
+
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.top = `${Math.random() * 100}vh`;
+    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    backgroundEffect.appendChild(particle);
+
+    // Rimuovi la particella dopo che l'animazione è terminata
+    particle.addEventListener('animationend', () => {
+        particle.remove();
+    });
+}
+
+setInterval(createParticle, 500); // Crea una nuova particella ogni 500ms
+
 // Effetto luce del mouse
 const mouseLight = document.createElement('div');
 mouseLight.className = 'mouse-light';
