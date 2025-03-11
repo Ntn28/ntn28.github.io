@@ -1,1 +1,26 @@
+/* Footer con transizione morbida */
+footer {
+    background-color: rgba(18, 18, 18, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease-in-out; /* Aggiungi transizione */
+}
 
+/* Effetto luce del mouse */
+.mouse-light {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.3), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none; /* Non interferisce con i clic */
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
